@@ -1,0 +1,79 @@
+:root {
+  font-size: 16px;
+  --text-primary: white;
+  --bg-primary: #ff8b2d;
+  --transition-speed: 600ms;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap');
+
+body {
+  color:black;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  font-family: "radio-canada-big", sans-serif;
+}
+main {
+  margin-left: 5rem;
+  padding: 1rem;
+}
+
+.navbar {
+  width: 5rem;
+  height: 100vh;
+  position: fixed;
+  background-color: var(--bg-primary);
+  transition: width 200ms ease;
+  font-weight: bold;
+}
+
+.navbar-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-item {
+  width: 100%;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  height: 5rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  filter: opacity(80%);
+}
+
+.nav-link:hover{
+  transition: .2s;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  filter: opacity(100%);
+}
+
+.link-text {
+  display: none;
+  margin-left: 1rem;
+}
+
+.nav-link svg {
+  width: 2rem;
+  min-width: 2rem;
+  margin: 0 1.5rem;
+}
+
+.navbar:hover{
+  width: 16rem;
+}
+
+
+.navbar:hover .link-text {
+  display: block;
+}
+
