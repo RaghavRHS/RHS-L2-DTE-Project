@@ -1,34 +1,32 @@
-:root {
+:root { /*Assigns root values*/
   font-size: 16px;
   --text-primary: white;
-  --bg-primary: #ff8b2d;
+  --bg-primary: #FFA500;
   --transition-speed: 600ms;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap'); /*Importing a Google font*/
 
-body {
+body { /*Sets the text color to black, background color to white, and font to the imported one*/
   color:black;
   background-color: white;
   margin: 0;
   padding: 0;
   font-family: "radio-canada-big", sans-serif;
 }
-main {
+main { /*margin to the left is 80px and padding is 16px*/
   margin-left: 5rem;
   padding: 1rem;
 }
 
-.navbar {
-  width: 5rem;
-  height: 100vh;
+.navbar { /*position is set to "fixed" and the background color is set to #FFA500. Adds a 200ms animation to all things under the navbar class and the font is set to bold.*/
   position: fixed;
   background-color: var(--bg-primary);
   transition: width 200ms ease;
   font-weight: bold;
 }
 
-.navbar-nav {
+.navbar-nav { /*Positions the items in the navbar using flexbox in a column direction*/
   list-style: none;
   padding: 0;
   margin: 0;
@@ -37,11 +35,11 @@ main {
   align-items: center;
 }
 
-.nav-item {
+.nav-item { 
   width: 100%;
 }
 
-.nav-link {
+.nav-link { /*Aligns items to center and sets the height to 80px. The colour of the text is set to white and the underline is removed. The default opacity is set to 80%*/
   display: flex;
   align-items: center;
   height: 5rem;
@@ -50,9 +48,8 @@ main {
   filter: opacity(80%);
 }
 
-.nav-link:hover{
+.nav-link:hover{ /*When the navbar items are hovered the opacity is set to 100% with a transition speed of 0.2s (gives it a smooth animation feel)*/
   transition: .2s;
-  background: var(--bg-primary);
   color: var(--text-primary);
   filter: opacity(100%);
 }
@@ -62,18 +59,49 @@ main {
   margin-left: 1rem;
 }
 
-.nav-link svg {
+.nav-link svg { /*The svg's have a width of 30px and a min-width of 30px. Margin is set to 24px.*/
   width: 2rem;
   min-width: 2rem;
-  margin: 0 1.5rem;
+  margin: 1.5rem;
 }
 
-.navbar:hover{
-  width: 16rem;
-}
-
-
-.navbar:hover .link-text {
+.navbar:hover .link-text { /*When the navbar is hovered over, the link text it will start on a new line and take up the full width available by default. */
   display: block;
 }
 
+@media only screen and (max-width: 600px) { /*On a device with a max width of 600px (mobile), put the navbar at the bottom with the items in a row*/
+  .navbar {
+    bottom: 0;
+    width: 100vw;
+    height: 5rem;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+  }
+
+  .nav-link {
+    justify-content: center;
+  }
+
+  main {
+    margin: 0;
+  }
+}
+
+@media only screen and (min-width: 600px) { /*On a device with a screen larger than 600px, navbar is kept on the side.*/
+  .navbar {
+    top: 0;
+    width: 5rem;
+    height: 100vh;
+  }
+
+
+  .navbar:hover .link-text {
+    display: inline;
+  }
+  
+  .navbar:hover {
+    width: 16rem;
+  }
+}
