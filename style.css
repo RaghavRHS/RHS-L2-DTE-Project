@@ -19,6 +19,18 @@ main {
   padding: 0;
 }
 
+h1 {
+  margin-top: 3rem;
+  text-decoration: underline;
+  text-decoration-color: var(--bg-primary);
+  text-underline-offset: 2px;
+}
+
+h2 {
+  text-decoration: underline;
+  text-decoration-color: var(--bg-primary);
+  text-underline-offset: 2px;
+}
 
 .navbar { /*position is set to "fixed" and the background color is set to #FFA500. Adds a 200ms animation to all things under the navbar class and the font is set to bold.*/
   position: fixed;
@@ -73,7 +85,8 @@ main {
 .card-list { /*Places all the cards in a row using flex box. Moves all the cards down 80px so they are more in the center. Gives the cards a padding of 48px.*/
   display: flex; 
   padding: 3rem;
-  margin-top: 5rem;
+  margin: auto;
+  justify-content: center;
 }
 
 .card { /*Sets the padding in the card to 24px and sets the flex-direction to column so any content in the cards flow vertically. The height is set to 350px and the width to 250px. The min width is set to 200px. */
@@ -97,16 +110,29 @@ main {
 }
 
 .card:hover~.card { /*Cards after the card that is hovered are moved 130 px to the right*/
-  transform: translateX(130px);
+  transform: translateX(100px);
 }
 
 .card:not(:first-child) { /*Moves all the cards except from the first card 130px to the left, preventing a gap from froming when card is hovered*/
-  margin-left: -130px;
+  margin-left: -100px;
+}
+
+.card-image {
+  position: relative;
+  display:grid;
+  grid-template-columns: 75px 1fr;
+  align-items: center;
+}
+
+.recipe-image img {
+  display: block;
+  width: 250px;
+  height: 250px;
+  border-radius: 1rem;
 }
 
 
-
-@media only screen and (max-width: 600px) { /*On a device with a max width of 600px (mobile), put the navbar at the bottom with the items in a row*/
+@media only screen and (max-width: 600px) { /*On a device with a max width of 600px (mobile), put the navbar at the bottom with the items in a row. Make the margin of the header 16px on the left. Shift the cards 80px up.*/
   .navbar {
     bottom: 0;
     width: 100vw;
@@ -124,6 +150,13 @@ main {
   main {
     margin: 0;
   }
+  h1 {
+    margin-left: 1rem;
+  }
+  .card-list {
+    margin-bottom: 5rem;
+
+  }
 }
 
 @media only screen and (min-width: 600px) { /*On a device with a screen larger than 600px, navbar is kept on the side.*/
@@ -140,5 +173,8 @@ main {
   
   .navbar:hover {
     width: 16rem;
+  }
+  h1 {
+    margin-left: 16rem;
   }
 }
