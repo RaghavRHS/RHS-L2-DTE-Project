@@ -78,8 +78,14 @@ h2 {
   margin: 1.5rem;
 }
 
-.navbar:hover .link-text { /*When the navbar is hovered over, the link text it will start on a new line and take up the full width available by default. */
-  display: block;
+.back-button svg { /*The back button has a width of 30px and a min-width of 30px. Margin is set to 24px.*/
+  width: 2rem;
+  min-width: 2rem;
+  margin: 1.5rem;
+}
+
+.navbar:hover .link-text {
+  display: inline;
 }
 
 .card-list { /*Places all the cards in a row using flex box. Moves all the cards down 80px so they are more in the center. Gives the cards a padding of 48px.*/
@@ -87,6 +93,10 @@ h2 {
   padding: 3rem;
   margin: auto;
   justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .card { /*Sets the padding in the card to 24px and sets the flex-direction to column so any content in the cards flow vertically. The height is set to 350px and the width to 250px. The min width is set to 200px. */
@@ -95,7 +105,6 @@ h2 {
   position: relative;
   flex-direction: column;
   height: 350px;
-  min-width: 200px;
   width: 250px;
   /*The corners of the cards are rounded and the colour is set to a greyish white. Shadows are added around the cards for a 3d effect. */
   border-radius: 1rem;
@@ -119,8 +128,6 @@ h2 {
 
 .card-image {
   position: relative;
-  display:grid;
-  grid-template-columns: 75px 1fr;
   align-items: center;
 }
 
@@ -131,11 +138,29 @@ h2 {
   border-radius: 1rem;
 }
 
+p {
+  margin-left: 6rem;
+  margin-top: 2rem;
+}
+
+.recipe-title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 6rem;
+  text-decoration: underline;
+  text-decoration-color: var(--bg-primary);
+  text-underline-offset: 2px;
+}
+
+.recipe-list {
+  margin-left: 4.5rem;
+} 
+
 
 @media only screen and (max-width: 600px) { /*On a device with a max width of 600px (mobile), put the navbar at the bottom with the items in a row. Make the margin of the header 16px on the left. Shift the cards 80px up.*/
   .navbar {
     bottom: 0;
-    width: 100vw;
+    width: 100%;
     height: 5rem;
   }
 
@@ -145,6 +170,7 @@ h2 {
 
   .nav-link {
     justify-content: center;
+    font-size: 20px;
   }
 
   main {
@@ -152,9 +178,12 @@ h2 {
   }
   h1 {
     margin-left: 1rem;
+    position: absolute;
+    top: 30%;
   }
   .card-list {
     margin-bottom: 5rem;
+    margin-left: 4rem;
 
   }
 }
@@ -165,11 +194,6 @@ h2 {
     width: 5rem;
     height: 100vh;
   }
-
-
-  .navbar:hover .link-text {
-    display: inline;
-  }
   
   .navbar:hover {
     width: 16rem;
@@ -177,4 +201,5 @@ h2 {
   h1 {
     margin-left: 16rem;
   }
+
 }
