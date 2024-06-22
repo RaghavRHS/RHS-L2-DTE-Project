@@ -19,13 +19,6 @@ main {
   padding: 0;
 }
 
-h1 {
-  margin-top: 3rem;
-  text-decoration: underline;
-  text-decoration-color: var(--bg-primary);
-  text-underline-offset: 2px;
-}
-
 h2 {
   text-decoration: underline;
   text-decoration-color: var(--bg-primary);
@@ -88,24 +81,21 @@ h2 {
   display: inline;
 }
 
-.card-list { /*Places all the cards in a row using flex box. Moves all the cards down 80px so they are more in the center. Gives the cards a padding of 48px.*/
+.card-list { /*Places all the cards in a row using flex box. Moves all the cards down to the center. Gives the cards a padding of 48px.*/
   display: flex; 
   padding: 3rem;
-  margin: auto;
   justify-content: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
 }
 
-.card { /*Sets the padding in the card to 24px and sets the flex-direction to column so any content in the cards flow vertically. The height is set to 350px and the width to 250px. The min width is set to 200px. */
-  padding: 1.5rem;
+.card { /*Sets the padding in the card to 24px and sets the flex-direction to column so any content in the cards flow vertically. The height is set to 340px and the width to 250px. The min width is set to 200px. */
+  padding: 1.5rem; 
   display: flex;
   position: relative;
   flex-direction: column;
-  height: 350px;
+  height: 340px;
   width: 250px;
+
   /*The corners of the cards are rounded and the colour is set to a greyish white. Shadows are added around the cards for a 3d effect. */
   border-radius: 1rem;
   background-color:  #eaeaea;
@@ -131,7 +121,7 @@ h2 {
   align-items: center;
 }
 
-.recipe-image img {
+.image-link img {
   display: block;
   width: 250px;
   height: 250px;
@@ -156,8 +146,15 @@ p {
   margin-left: 4.5rem;
 } 
 
+.unscrollable-text { /*Prevents the titles on the food category pages from scrolling with the cards keeping them in sight.*/ 
+  text-decoration: underline;
+  text-decoration-color: var(--bg-primary);
+  text-underline-offset: 2px;
+  position: fixed;
+}
 
-@media only screen and (max-width: 600px) { /*On a device with a max width of 600px (mobile), put the navbar at the bottom with the items in a row. Make the margin of the header 16px on the left. Shift the cards 80px up.*/
+
+@media only screen and (max-width: 600px) { /*On a device with a max width of 600px (mobile), put the navbar at the bottom with the items in a row. Resize the cards so that they are larger and more readable. I also resize the images in th cards so that they are more visible and I also doubled the size of the text on the cards. I also repositioned the cards so they are always start from the first card. */
   .navbar {
     bottom: 0;
     width: 100%;
@@ -176,19 +173,38 @@ p {
   main {
     margin: 0;
   }
-  h1 {
-    margin-left: 1rem;
-    position: absolute;
-    top: 30%;
-  }
-  .card-list {
-    margin-bottom: 5rem;
-    margin-left: 4rem;
 
+  .card{
+    padding: 3rem;
+    height: 680px;
+    width: 500px;
   }
+  .image-link img {
+    width: 500px;
+    height: 500px;
+    border-radius: 2rem;
+  }
+  .card-header {
+    font-size: 200%;
+  }
+
+  .card-list {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);  
+  }
+  
+  .unscrollable-text {
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 75px;
+  }
+
 }
 
-@media only screen and (min-width: 600px) { /*On a device with a screen larger than 600px, navbar is kept on the side.*/
+
+@media only screen and (min-width: 600px) { /*On a device with a screen larger than 600px, navbar is kept on the side. The card list is repositioned in in centre and the category title is fixed to the middle top of the page. */
   .navbar {
     top: 0;
     width: 5rem;
@@ -202,4 +218,16 @@ p {
     margin-left: 16rem;
   }
 
+  .card-list {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .unscrollable-text {
+  position: absolute;
+  left: 25%;
+  top: 10%;
+}
 }
