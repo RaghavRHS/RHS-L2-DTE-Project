@@ -74,12 +74,22 @@ h2 {
 .back-button svg { /*The back button has a width of 30px and a min-width of 30px. Margin is set to 24px.*/
   width: 2rem;
   min-width: 2rem;
-  margin: 1.5rem;
+  transition: 0.3s;
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;  
+  
+}
+
+.back-button svg:hover {
+  transform: rotate(360deg);
+  width: 2.5rem;
 }
 
 .navbar:hover .link-text {
   display: inline;
 }
+
 
 .card-list { /*Places all the cards in a row using flex box. Moves all the cards down to the center. Gives the cards a padding of 48px.*/
   display: flex; 
@@ -134,25 +144,60 @@ p {
 }
 
 .recipe-title {
-  font-size: 30px;
   font-weight: bold;
-  margin-left: 6rem;
-  text-decoration: underline;
-  text-decoration-color: var(--bg-primary);
-  text-underline-offset: 2px;
+  color: white;
+  font-size: 4rem;
+  text-shadow: 0 0 5px black;
+
 }
 
 .recipe-list {
   margin-left: 4.5rem;
 } 
 
-.unscrollable-text { /*Prevents the titles on the food category pages from scrolling with the cards keeping them in sight.*/ 
+.unscrollable-text { /*Prevents the titles on the food category pages from scrolling with the cards keeping them in sight. Centres the text.*/ 
   text-decoration: underline;
   text-decoration-color: var(--bg-primary);
   text-underline-offset: 2px;
   position: fixed;
+  text-align: center;
 }
 
+.title {
+  font-size: 4rem;
+}
+
+header { /*Places all of my content on the centre and makes the header take up 100% of out screen. In order to style things in 3d, I set the transform-style to 3d. I also set the z index to -1 to make sure the images shows up behind the text at the bottom.*/
+  position: relative;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transform-style: preserve-3d;
+  z-index: -1;
+}
+
+.background { /*Sets the height to 100% and sets the width to 105% (incase the image is not wide enough to fit the screen. Sets the position to absolute and object-fit:cover amkes sure the image maintains its aspect ratio. Sets z index to -1 so the recipe title can show up. Finally, I add the parallax effect to the image, pushing it away in the z coordinate. */
+  height: 100%;
+  width: 105%;
+  position: absolute;
+  object-fit: cover;
+  z-index: -1;
+  transform: translateZ(-10px) scale(2);
+}
+
+.wrapper { /*Sets the heigh to cover the whole available area. Overflow-y:auto allows us to scroll the wrapper instead of the body. I also hide the horizontal scroll bars. In order to have a 3d effect, I set a perspective of 10px. */
+  height:100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+
+}
+
+.recipe-text-background {
+  background-color: white;
+  padding: 2rem;
+}
 
 @media only screen and (max-width: 600px) { /*On a device with a max width of 600px (mobile), put the navbar at the bottom with the items in a row. Resize the cards so that they are larger and more readable. I also resize the images in th cards so that they are more visible and I also doubled the size of the text on the cards. I also repositioned the cards so they are always start from the first card. */
   .navbar {
@@ -201,6 +246,14 @@ p {
     font-size: 75px;
   }
 
+  .recipe-text-background {
+    font-size: 200%;
+  }
+
+  .wrapper {
+    height: 250vh;
+  }
+
 }
 
 
@@ -221,13 +274,12 @@ p {
   .card-list {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left:50%;
     transform: translate(-50%, -50%);
   }
-
   .unscrollable-text {
   position: absolute;
-  left: 25%;
+  left: 28%;
   top: 10%;
 }
 }
