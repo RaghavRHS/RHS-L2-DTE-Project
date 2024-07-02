@@ -8,6 +8,6 @@ Project Description: This is a website I made for my mum, displaying some of her
 
 How to Install and Run Project:
 
-How to Use the Project: It is an easy to use website. Simply use the navigation bar navigate through the site. 
+How to Use the Project: It is an easy to use website. Simply use the navigation bar to navigate through the site. 
 
 By Raghav Shukla 2024
